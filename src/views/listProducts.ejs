@@ -1,0 +1,271 @@
+<!DOCTYPE html> 
+ 
+<html>
+     <!-- HEAD -->
+     <head lang="en"> 
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Química Elohim-Productos</title> 
+        <base href = "/"> 
+        <link rel="icon" href= "/images/logo16.png" />
+        
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link href="css/normalize.css" rel="stylesheet">
+        <link href="css/style-listadoCelulares.css" rel="stylesheet">
+        <script src="/js/burgerMenu.js" defer></script>
+        <script src="/js/header.js" defer></script> 
+    </head>
+<body>
+    <!-- HEADER -->
+    <%- include('./partials/header') %>
+        
+    <!-- MAIN -->
+
+        <main>
+            <div class="col-12">
+                <i class="fa-solid fa-clipboard-list"></i>
+                <h2 class="products-title">Todos Los Productos</h2>
+            </div> 
+        <div class = 'main-listaProductos'>
+           
+        <section class="section-set-display filtrados">
+      
+            <div class="filtros-aplicados">
+                <div class="container ">
+                   
+                    <div class="container products-wrapper">
+                        <div class="row">
+                            <button class="btn-filter">
+                                <i class="fa-solid fa-filter filter-icon"></i>
+                                <p class="filter">FILTRAR</p>
+                            </button> 
+                            <div class="filter-menu active">
+            
+                               
+                                <div class="container">
+                                    <div class="filter-container">
+                                    <i class="fa-solid fa-arrow-left-long arrow-left"></i>
+                                    <h2 class="filter-title">FILTRAR</h2>
+                                    </div>
+                                    
+                                    <div class="panel-group">
+                                      <div class="panel panel-default">
+                                        <div class="panel-heading categoria">
+                                          <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-target="#collapse0">Celulares</a>
+                                          </h4>
+                                        </div>
+                                        <div id="collapse0" class="panel-collapse collapse">
+                                            <div class="panel-opcion">
+                                                <input class="form-check-input brand phones" data-category="phones" type="checkbox" value="Samsung">
+                                                <label class="form-check-label" for="categorycheckbox1">Samsung</label>
+                                            </div>
+                                            <div class="panel-opcion">
+                                                <input class="form-check-input brand phones" data-category="phones" type="checkbox" value="Xiaomi">
+                                                <label class="form-check-label"for="categorycheckbox2">Xiaomi</label>
+                                            </div>
+                                            <div class="panel-opcion">
+                                                <input class="form-check-input brand phones" data-category="phones" type="checkbox" value="Huawei">
+                                                <label class="form-check-label" for="categorycheckbox3">Huawei</label>
+                                            </div>
+                                             
+                                        </div>
+                                      </div>
+            
+                                      <div class="panel panel-default">
+                                        <div class="panel-heading categoria">
+                                          <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-target="#collapse1">Tablets</a>
+                                          </h4>
+                                        </div>
+                                        <div id="collapse1" class="panel-collapse collapse">
+                                            <div class="panel-opcion">
+                                                <input class="form-check-input brand tablets" data-category="tablets"type="checkbox"  value="Xiaomi">
+                                                <label class="form-check-label" for="brandcheckbox1">Xiaomi</label>
+                                            </div>
+                                            <div class="panel-opcion">
+                                                <input class="form-check-input brand tablets" data-category="tablets" type="checkbox"  value="Samsung">
+                                                <label class="form-check-label" for="brandcheckbox2">Samsung</label>
+                                            </div>
+                                                <div class="panel-opcion">
+                                                    <input class="form-check-input brand tablets" data-category="tablets" type="checkbox"  value="Lenovo">
+                                                    <label class="form-check-label" for="brandcheckbox3">Lenovo</label>
+                                                </div>
+                                        </div>
+                                      </div>
+            
+                                      <div class="panel panel-default">
+                                        <div class="panel-heading categoria">
+                                          <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-target="#collapse2">Laptops</a>
+                                          </h4>
+                                        </div>
+                                        <div id="collapse2" class="panel-collapse collapse">
+                                            <div class="panel-opcion">
+                                                <input class="form-check-input brand laptops" name="laptops" data-category="laptops" type="checkbox" value="Lenovo">
+                                                <label class="form-check-label" for="brandcheckbox4">Lenovo</label>
+                                            </div>
+                                            <div class="panel-opcion">
+                                                <input class="form-check-input brand laptops" name="laptops" data-category="laptops" type="checkbox" value="Dell">
+                                                <label class="form-check-label" for="brandcheckbox5">Dell</label>
+                                            </div>
+                                            <div class="panel-opcion">
+                                                <input class="form-check-input brand laptops" name="laptops" data-category="laptops" type="checkbox" value="Apple">
+                                                <label class="form-check-label" for="brandcheckbox6">Apple</label>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <div class="header-filter">                
+                                            
+                                            <button class="clean brand">LIMPIAR</button>
+                                        </div>
+            
+                                        <div class="panel-division">
+                                            
+                                        </div>
+            <!-- filter Price -->
+                                      <div class="panel panel-default">
+                                        <div class="panel-heading categoria">
+                                          <h4 class="panel-title panel-price">
+                                            <a data-toggle="collapse" data-target="#collapse3">Precio</a>
+                                           
+                                          </h4>
+                                        </div>
+                                        <div id="collapse3" class="panel-collapse collapse">
+                                            <div class="panel-opcion">
+                                                <input class="form-check-input price" name="price" data-category="" type="radio" value="1">
+                                                <label class="form-check-label" for="brandradio5">$ 100.000 o menos</label>
+                                            </div>
+                                            <div class="panel-opcion">
+                                                <input class="form-check-input price" name="price" data-category="" type="radio" value="2">
+                                                <label class="form-check-label" for="brandradio6">$ 100.000 a $ 200.000</label>
+                                            </div>
+                                            <div class="panel-opcion">
+                                                <input class="form-check-input price" name="price" data-category="" type="radio" value="3">
+                                                <label class="form-check-label" for="brandradio6">$ 200.000 o más</label>
+                                                
+                                            </div>
+                                            <div class="clean-price"><button class="clean price">LIMPIAR</button></div>
+                                            
+                                        </div>
+                                      
+                                      </div>
+            <!-- filtro Discount -->
+                                      <!-- <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                          <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-target="#collapse4">Descuento</a>
+                                            <button class="clean discount">LIMPIAR</button>
+                                          </h4>
+                                        </div>
+                                        <div id="collapse4" class="panel-collapse collapse">
+                                            <div class="">
+                                                <input class="form-check-input discount" name="discount" data-category="" type="radio" value="1">
+                                                <label class="form-check-label" for="brandradio5">Desde 10% OFF</label>
+                                            </div>
+                                            <div class="">
+                                                <input class="form-check-input discount" name="discount" data-category="" type="radio" value="2">
+                                                <label class="form-check-label" for="brandradio6">Desde 20% OFF</label>
+                                            </div>
+                                            <div class="">
+                                                <input class="form-check-input discount" name="discount" data-category="" type="radio" value="3">
+                                                <label class="form-check-label" for="brandradio6">Desde 30% OFF</label>
+                                            </div>
+                                            <div class="">
+                                                <input class="form-check-input discount" name="discount" data-category="" type="radio" value="4">
+                                                <label class="form-check-label" for="brandradio6">Desde 40% OFF</label>
+                                            </div>
+                                            <div class="">
+                                                <input class="form-check-input discount" name="discount" data-category="" type="radio" value="5">
+                                                <label class="form-check-label" for="brandradio6">Desde 50% OFF</label>
+                                            </div>
+                                        </div>
+                                      </div> -->
+                                    </div>
+                                  </div>
+                                  <div class="bckOpacity">
+                                    
+                                   </div>
+                            </div>
+                            </div>
+                    
+            </div>        
+        </section>
+
+
+                
+                <!-- Tarjeta de producto --> 
+                <div class="result container-fluid row">
+                  
+                <% products.forEach (item => { %>
+                <div class=" col-xs-12 col-sm-6 col-md-4 col-lg-3 grid <%= item.category %> <%= item.brand %> <%= item.discount%>" > 
+                    
+                    <section class='article-style-celulares article01 cards' data-category="<%= item.brand + '-' + item.category%>" data-price="<%=item.price_product%>" data-discount="<%=item.discount%>">
+                        <div class="brand-product" style="display: none;">
+                            <h5 id="item-brand"><%= item.brand %></h5>
+                        </div>
+                        <div class="section-product" style="display: none;">
+                            <h5 id="item-section"><%= item.section %></h5>
+                        </div>
+                        <% if (item.discount != 0) { %>
+                            <div class="imgOferta"><img src="images/oferta/oferta1.png" alt="oferta"></div>
+                            <% } %>
+                      
+                        <div class="imgProduct">
+                            <img onclick="location.href='product/productDetail/<%= item.id%>'" 
+                            src="images/products/<%= item.image_product %>">
+                            
+                        </div>
+                        
+                        
+                        <article class="descriptionProduct listProduct">
+                            <div class="title-product">
+                                <h5 id="item-name"><%= item.name %></h5>
+                            </div>
+                            <div class="price-product">
+                                <h5>$ <%= (((100 - item.discount)/100)*item.price_product).toFixed(2) %></h5>
+                            </div> 
+                            <!-- <% if (item.discount != 0) { %>
+                                <div class="discount-listaProducto">
+                                    <h6 class="precio-tachado">$ <%= item.price_product %></h6>
+                                    <h6><%= item.discount %> % OFF</h6>
+                                </div>
+                            <% } %> -->
+                            <div class="brand-product" style="display: none;">
+                                <h5 id="item-brand"><%= item.brand %></h5>
+                            </div>
+                            <div class="section-product" style="display: none;">
+                                <h5 id="item-section"><%= item.section %></h5>
+                            </div>
+                           
+                            <!-- <div class="verProducto">
+                                 buttom using OnClick JS - cambiar con item.id -->
+                                <!-- <button class='submit-verProducto' onclick="window.location.href='/product/productDetail/<%= item.id %>'">
+                                    Ver Producto
+                                  </button>
+                              </div> -->
+                        </article>
+                    </section>    
+                </div> 
+            <% }) %>
+            <% if(products.length == 0) {%>
+                <div class="notFound">
+                    <img src="images/notfound1.gif" alt="">
+                </div>
+            <%} %>
+            
+            </div>               
+            </div>
+        </div>     
+        
+   
+     </main>
+      <!-- FOOTER -->
+    <%- include('./partials/footer') %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <script src="/js/filter.js"></script>
+   <script src="/js/titleCategory.js"></script>
+</body>

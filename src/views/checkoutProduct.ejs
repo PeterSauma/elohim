@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <!-- HEAD -->
+  <title>Química Elohim-Carrito</title> 
+  <%- include('./partials/head') %>
+  <body>
+    <!-- HEADER -->
+    <%- include('./partials/header') %>
+
+    <!-- MAIN -->
+    <main class="main-checkout">
+        <div class="container-checkout">
+        <h1 class="msg-congrats">¡SE HA EMITIDO LA ORDEN DE COMPRA CON ÉXITO!</h1>
+        </div>
+        <div class="msjEntregaProducto">
+            <p>A la brevedad nos contactaremos con usted para coordinar el pago y la entrega/envio de su orden</p>
+        </div>
+        <h2 class="order-number"> Pedido Nro <%= lastOrder.id %>
+        </h2>
+        <div class="card my-5">
+            <div class="card-body tabla">
+                <table class="table table-responsive-md mb-0">
+                    <thead>
+                        <tr>
+                            <th class='th-1'style="width: 50px;">
+                                <strong>#</strong>
+                            </th>
+                            <th class="th-lg th">
+                                <strong>Producto</strong>
+                            </th>
+                            <th class="th-lg th ">
+                                <strong>Precio</strong>
+                            </th>
+                            <th class="text-center th">
+                                <strong>Cantidad</strong>
+                            </th>
+                            <th class="text-center th">
+                                <strong>Subtotal</strong>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="cartRows">
+                        <% for( let i=0; i < lastOrder.orderItems.length; i++ ) { %>
+                            <tr>
+                                <th class= 'th-1'scope="row">
+                                    <%= i + 1 %>
+                                </th>
+                                <td class="td-2">
+                                    <%= lastOrder.orderItems[i].name %>
+                                </td>
+                                <td>$ <%= lastOrder.orderItems[i].price%>
+                                </td>
+                                <td class="text-center">
+                                    <%= lastOrder.orderItems[i].cantidad%>
+                                </td>
+                                <td class="text-center">$
+                                    <%= lastOrder.orderItems[i].price * lastOrder.orderItems[i].cantidad%>
+                                </td>
+                            </tr>
+
+                            <% } %>
+                    </tbody>
+                </table>
+                <div class="card-footer text-right subtotal">
+                  <h2>Subtotal: <span class="subtotalAmount"><%= lastOrder.total %> </span></h2>
+              </div>
+                <div class="card-footer text-right ">
+                  <h2>Descuento: <span class="discountAmount">0</span></h2>
+              </div>
+                <div class="card-footer text-right total">
+                    <h2>Total: <span class="totalAmount"><%= lastOrder.total %></span></h2>
+                </div>
+            </div>
+        </div>
+        <div class="card purchaseDetail">
+            <div class="card-header text-center">
+                Detalles de la compra
+            </div>
+            <div class="card-body purchaseDetail" id="checkoutCart">
+                <div class="row1">
+                    <div class=" col-md-6">
+                        <p class="mb-0"><strong>Tipo Envio:</strong>
+                            <%= lastOrder.shippingMethod %>
+                        </p>
+                    </div>
+                    <div class=" col-md-6">
+                        <p class="mb-0"><strong>Pago:</strong>
+                            <%= lastOrder.paymentMethod %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a href="/" class="btn btn-primary btn-block">Volver a la página principal</a>
+            </div>
+        </div>
+    </div>
+    </main>
+    <!-- FOOTER -->
+    <%- include('./partials/footer') %>
+
+    <script src="/js/productCheckout.js"></script>
+  </body>
+ 
+</html>

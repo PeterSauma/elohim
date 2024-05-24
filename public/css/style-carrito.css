@@ -1,0 +1,518 @@
+/* Configuracion universal */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&family=Roboto:wght@100&display=swap');
+
+/*tipografía del body, interlineado y altura*/
+.body-carrito{
+    font-family: 'Raleway', sans-serif ;
+    height: 100%;
+    border: solid 5px rgb(209, 206, 206);
+    background-color: #ebebeb;
+}
+/*tipografia de la estructura interna del body*/
+
+main {
+    width: 100%;
+    margin: auto;
+}
+
+article {
+    margin-bottom: 10px;
+    padding: 15px;
+}
+
+p{
+    font-size: 12px;
+}
+
+h2{
+    font-size: 24px;
+}
+
+h6{
+    font-size: 18px;
+}
+
+h5{
+    font-size: 16px;
+}
+
+/* Flex-Box  */
+
+.flex-grow-40 {
+    flex-grow:0.4;
+}
+
+.flex-grow-60 {
+    flex-grow:0.6;
+}
+.flex-grow-70 {
+    flex-grow:0.7;
+}
+
+.flex-grow-100 {
+    flex-grow: 1;    
+}
+
+/* Header */
+
+.header-logo {
+    display: flex ;
+    height: 100px;
+    width: 100%;
+    background-color: rgb(255, 255,255);  
+}
+
+.header-logo img {
+   width: 150px;
+    margin: auto;
+}
+
+hr {
+    margin-top: 50px;
+}
+
+/* Main <---> Seccion de articulos a comprar */
+
+.shopping-cart {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: #827397;
+}
+
+/* Main <---> Seccion de articulos a comprar <---> Headline*/
+
+.shopping-cart i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 85%;
+    box-shadow: 0 0 2px #888;
+    padding: 0.5em 0.6em;
+    font-size: 1em;
+    color: white;
+    margin: 10px 0px 10px 20px;
+    border: 1px solid;
+}
+
+.shopping-cart h1 {
+    color: white;
+    font-size: 1em;
+    text-transform: uppercase;
+    margin: 2.5px 10px;
+    padding: 10px 2.5px;
+    font-weight: 100;
+}
+
+/* Main <---> Seccion de articulos a comprar <---> Producto*/
+
+.cart-items {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.img-items {
+    flex-grow: 0.5;
+    text-align: center;
+}
+
+.img-items img {
+    height: 25vw;
+    max-height: 150px
+}
+
+.description-item {
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+    margin: auto;
+    align-items: center;
+}
+
+.description {
+    font-weight: 100;
+    text-align: center;
+    margin: 10px auto;
+    max-width: 350px;    
+}
+    
+.counter {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    align-items: center;
+    flex-grow: 0.8;
+    justify-content: center;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 10px;
+    font-size: 2em;
+    cursor: pointer; 
+
+}
+
+.remove-button {
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 2px 2px 4px #000000;
+    background-color: #827397;
+
+}
+
+.amount {
+    margin-bottom: 5px;
+}
+
+/* Main <---> Seccion de descuento y checkout */
+
+/* Descuento */
+
+.discount-checkout
+.discount {
+    width: 90%;
+    margin: auto;
+    border-top: 2.5px solid #827397;
+    border-bottom: 2.5px solid #827397;
+}
+.discount-code {
+text-align: center;
+margin-bottom: 20px;
+}
+
+.discount-container{
+    display: flex;
+    justify-content: center;
+}
+
+.discount-container form {
+    width: 100%;
+    text-align: center;
+}
+
+.discount-box {
+    height: 70%;
+    width: 60%;
+    margin: 0px 10px 10px 0px;
+}
+
+.discount-button {
+    font-size: 1em;
+    font-weight: 700;
+    padding: 5px 15px;
+    background-color: white;
+    color: #827397;
+    cursor: pointer;
+    opacity: 0.8;
+    border-radius: 4px;
+    box-shadow: 2px 2px 4px #000000;
+    transition: all 0.2s;
+}
+
+.discount-button:hover {
+    background-color:#827397;
+    color: white;
+}
+
+/* Checkout */
+
+.subtotal-box {
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
+    
+}
+
+.total-box {
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
+}
+
+.checkout-buttom {
+    text-align: center;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+.checkout-buttom button {
+    font-size: 1em;
+    font-weight: 700;
+    padding: 5px 15px;
+    width: 80%;
+    background-color: #827397;
+    opacity: 0.8;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 2px 2px 4px #000000;
+    transition: all 0.2s;
+}
+
+.checkout-buttom button:hover {
+    opacity: 1;
+}
+.checkout-continue {
+    text-align: center;
+    padding: 5px;
+    
+}
+
+.checkout-continue button {
+    font-size: 1em;
+    font-weight: 700;
+    padding: 5px 15px;
+    width: 80%;
+    background-color: white;
+    color: #827397;
+    cursor: pointer;
+    opacity: 0.8;
+    border-radius: 4px;
+    box-shadow: 2px 2px 4px #000000;
+    transition: all 0.2s;
+}
+
+.checkout-continue button:hover {
+    background-color:#827397;
+    color: white;
+}
+
+/* Main <---> Seccion de sugerencias */
+
+.suggestion {
+    display: flex;
+    flex-wrap:wrap;
+    width: 90%;
+    margin: auto;
+    padding: 15px;
+    border-top: 2.5px solid #ccc7c7;
+    border-bottom: 2.5px solid #ccc7c7;
+}
+
+.suggestion-title-box {
+    width: 100%;
+    margin: 10px 0px;
+}
+
+
+
+.item-suggested {
+    width: 50%;
+    padding: 10px 0px;
+}
+
+
+.img-price-container img {
+    border: 1px solid rgba(0,0,0,0.5);
+    padding: 11px;
+}
+
+
+.description-container {
+    display: flex;
+    width: 90%;
+    margin: 10px auto;
+}
+.description-container .description-text {
+    display: none;
+    text-align: center;
+    color: black;
+    /* background-color:rgb(70, 0, 128) ; */
+    padding: 5px 1px;
+    margin:10px;
+    /* border: rgb(137,7, 243) 5px solid; */
+    border-radius: 10%;
+}
+.description-container .description-price {
+    color:  rgb(70, 0, 128);
+    font-style: italic;
+    
+}
+
+.description-container i{ 
+    font-size: 1em;
+    color: rgb(70, 0, 128);
+}
+
+
+.s-item-3,
+.s-item-4 {
+    display: none;
+}
+
+/* Footer */
+
+
+.footer-container{
+    width: 90%;
+    margin: auto;
+    text-align: justify;
+}
+
+.footer-logo {
+    padding: 10px;
+    margin: 15px 0px;
+}
+
+.footer-container h4{
+    font-weight: 100;
+    padding: 10px 5px;
+    margin: 10px 0px 15px;   
+}
+
+.footer-container h5{
+    font-weight: 100;
+    padding-bottom: 10px
+}
+
+.footer-container p {
+    padding-bottom: 10px;
+}
+
+.data-fiscal-container {
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+}
+
+.data-fiscal-container img {
+    width: 10%;
+    max-width: 50px;
+    text-align: center;
+}
+
+
+/* Media Queries */
+
+@media (min-width: 600px) {
+   
+    .description {
+        width: 35vw;
+    }
+    .suggestion {
+        justify-content: space-around;
+    }
+    .item-suggested {
+        width: 45%;
+        margin: 5px 5px;
+        padding: 10px 0px; 
+    }
+
+    footer {
+        display: flex;
+        align-items: center;
+    }
+
+    .footer-container{
+        width: 70%;
+        margin: 10px;
+        padding: 10px;
+        /* border-right: #ccc7c7 3px solid; */
+    }
+
+    .data-fiscal-container {
+        width: 30%;
+    }
+
+    .data-fiscal-container img {
+        width: 50px;
+}
+
+@media (min-width: 768px) {
+    .main-carrito {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .shopping-cart {
+        width: 100%;
+    }
+
+    .shopping-cart i {
+        font-size: 1.3em;
+    }
+
+    .shopping-cart h1 {
+        font-size: 1.3em;
+    }   
+
+    .cart-container {
+        width: 65%;
+    }
+
+    .discount-box {
+        height: 40%;
+        width: 100%;
+        
+    }
+    
+
+    .discount-checkout {
+        width: 32vw;
+    
+    }
+
+    .discount-checkout
+    .discount {
+        width: 100%;
+        margin: auto;
+        border-top: none;
+        border-bottom: 2.5px solid #ccc7c7;
+        padding-bottom: 30px;
+    }
+
+    .checkout {
+        flex-grow: 1;
+    }
+    .checkout-buttom {
+        margin: 5px 0px;
+    }
+
+    .checkout-buttom button {
+        font-size: 1em;
+        padding: 5px 15px;
+        width: 100%;
+    }
+
+    .checkout-continue button {
+        width: 100%;
+    }    
+    
+    
+
+    .description-item {
+        width: 55%;
+}
+
+@media (min-width: 900px) {
+    .description-item {
+        width: 72%;
+    }
+
+    .description {
+        width: 25vw;
+    }    
+    
+    .item-suggested {
+        width: 30%;
+        margin: 5px 5px;
+        padding: 10px 0px; 
+        border: solid thin  #000000 ; 
+    }
+    .s-item-3 {
+        display: block;
+    }
+}
+
+
+}
+}

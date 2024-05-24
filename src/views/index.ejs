@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+  <!-- HEAD -->
+  <title>Química Elohim</title> 
+  <%- include('./partials/head') %>
+  <body>
+    <!-- HEADER -->
+    <%- include('./partials/header') %>
+
+    <!-- MAIN -->
+    <main class="main-home">
+        <!-- Carrusel -->
+      <section class="section-set-display carrusel">
+        <div class="slider-frame">
+          <ul>
+            
+              <img
+                src="images/banner/banner42.png"
+                alt="Ofertas"
+              />
+            
+          </ul>
+        </div>
+      </section>
+      <!-- Carrusel end -->
+      <!-- Info -->
+      
+      <section class="section-set-display info">
+        <div class="containerInfo">
+          <ul>
+            <li>
+              <div class="info-li">
+                <i class="icons-index fa-regular fa-credit-card"></i>
+                <h3>Recibimos todas las tarjetas</h3>
+              </div>
+            </li>
+            <li>
+              <div class="info-li">
+                <i class="icons-index fa-solid fa-truck-arrow-right"></i>
+                <h3>Envío gratis a todo el país</h3>
+              </div>
+            </li>
+            <li>
+              <div class="info-li">
+                <i class="icons-index fa-solid fa-check"></i>
+                <h3>12 meses de garantía</h3>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- INFO end -->
+
+   
+
+      
+      <div>
+           <h2 class="typing seccion1"><a href="/searchedProducts">Lo más buscado</a></h2>
+
+      </div>
+      
+      <section class="section-set-display sección01">
+        <div class="swiper mySwiper seccion1">
+          <div class="swiper-wrapper">
+          <% for (i = 0; i < searchedProducts.length; i++) { %> 
+          <div class="swiper-slide bckSwiper">
+             <article class="article-style bckArticle">
+               <div class="bckCard seccion1">
+                 </div>
+               <div class="imgProduct seccion1">
+               <img onclick="location.href='product/productDetail/<%= searchedProducts[i].id%>'"
+                  src="images/products/<%= searchedProducts[i].image_product %>" 
+                  alt="<%= searchedProducts[i].name %>"/>
+               </div>
+              
+
+               <div class="descriptionProduct seccion1">  
+               <div class="title seccion1">
+                 <h5><%= searchedProducts[i].name %></h5>
+               </div>               
+               </div>
+                      
+        
+            </article>
+          </div>
+
+     
+      
+        <% } %>
+          </div>
+        <div class="swiper-pagination"></div>
+         </div>
+      </section>
+      <div class="body-menu">
+      <div >
+        <h2><a href="/phones">Celulares</a></h2>
+      </div>
+      
+      <section class="section-set-display seccion02">
+        <div class="swiper swiper-section mySwiper">
+          <div class="swiper-wrapper">
+        
+            <% for (i = 0; i < 6; i++) { %> 
+              <div class="swiper-slide">
+          <article class="article-style">
+            <div class="bckCard">
+              <img onclick="location.href='product/productDetail/<%= phones[i].id%>'"
+                src="images/products/<%= phones[i].image_product %>" 
+                alt="<%= phones[i].name %>"
+              />
+            </div>
+            <% if (phones[i].discount != 0) { %>
+              <div class="imgOferta-phones"><img src="images/oferta/oferta1.png" alt="oferta"></div>
+              <% } %>
+            
+            <div class="descriptionProduct-seccion">  
+              <div class="title title-section">
+               
+                <h5><%= phones[i].name %></h5>
+                
+              </div>
+              <div class="price">
+                <h5>$ <%= (((100 - phones[i].discount)/100)*phones[i].price_product).toFixed(0) %> </h5>
+                
+              </div>
+
+              
+            </div>
+            <div class="buttomVerProducto">
+              <a style="text-decoration:none" onclick="location.href='product/productDetail/<%= phones[i].id%>'">VER PRODUCTO</a>
+            </div>
+          </article>
+        </div>
+
+     
+      
+        <% } %>
+          </div>
+        <div class="swiper-pagination"></div>
+         </div>
+      </section>
+      <div>
+         <h2><a href="/tablets">Tablets</a></h2>
+      </div>
+      <section class="section-set-display seccion03">
+        <div class="swiper swiper-section mySwiper">
+          <div class="swiper-wrapper">
+        <% for (i = 0; i < 6; i++) { %> 
+          <div class="swiper-slide">
+          <article class="article-style">
+            <div class="bckCard">
+              <img onclick="location.href='product/productDetail/<%= tablets[i].id%>'"
+              src="images/products/<%= tablets[i].image_product %>" 
+              alt="<%= tablets[i].name %>"
+            />
+            </div>
+            <% if (tablets[i].discount != 0) { %>
+              <div class="imgOferta"><img src="images/oferta/oferta1.png" alt="oferta"></div>
+              <% } %>
+          
+  
+            <div class="descriptionProduct-seccion">  
+              <div class="title title-section">
+                <h5><%= tablets[i].name %></h5>
+              </div>
+              <div class="price secciones">
+                <h5>$ <%= tablets[i].price_product %> </h5>
+              </div>
+             
+                           
+            </div>
+            <div class="buttomVerProducto">
+              <a style="text-decoration:none" onclick="location.href='product/productDetail/<%= tablets[i].id%>'">VER PRODUCTO</a>
+            </div>
+          </article>
+        </div>
+        <% } %>
+          </div>
+        <div class="swiper-pagination"></div>
+         </div>
+      </section>
+     
+      <div class="imgofertas">
+        <img src="images/ofertacompu.png" alt="">
+        <img src="images/ofertatablets.png" alt="">
+       </div>
+
+      <div>
+        <h2><a href="/laptops">Laptops</a></h2>
+      </div>
+     
+      <section class="section-set-display seccion04">
+        <div class="swiper swiper-section mySwiper">
+          <div class="swiper-wrapper">
+        <% for (i = 0; i < 6; i++) { %> 
+          <div class="swiper-slide">
+          <article class="article-style">
+            <div class="bckCard">
+              <img onclick="location.href='product/productDetail/<%= laptops[i].id%>'"
+              src="images/products/<%= laptops[i].image_product %>" 
+              alt="<%= laptops[i].name %>"
+            />
+            </div>
+            <% if (laptops[i].discount != 0) { %>
+              <div class="imgOferta"><img src="images/oferta/oferta1.png" alt="oferta"></div>
+              <% } %>
+           
+  
+            <div class="descriptionProduct-seccion">  
+              <div class="title title-section">
+                <h5><%= laptops[i].name %></h5>
+              </div>
+              <div class="price secciones">
+                <h5>$ <%= laptops[i].price_product %> </h5>
+              </div>
+              
+            </div>
+            <div class="buttomVerProducto">
+              <a style="text-decoration:none" onclick="location.href='product/productDetail/<%= laptops[i].id%>'">VER PRODUCTO</a>
+            </div>
+          </article>
+        </div>
+         <% } %>
+          </div>
+        <div class="swiper-pagination"></div>
+         </div>
+         
+      </section>
+      <div class="imgDelivery">
+        <img src="images/freeDelivery2.png" alt="">
+       </div>
+     
+      <section class="section-set-display section-btn-whatsapp">
+        <div class="btn-whatsapp">
+          <a
+            href="https://api.whatsapp.com/send/?phone=+54 11 36346889&text=Tecnomundo!"
+            target="_blank"
+            title="¡Dejanos tu mensaje!"
+            ><img src="images/whatsapp-logo.png" alt="whatsapp logo"
+          /></a>
+        </div>
+      </section>
+     
+    </div>
+    </main>
+    <!-- FOOTER -->
+    <%- include('./partials/footer') %>
+
+    <!-- Fade Efect js -->
+
+    <script src="/js/fadeEfect.js"></script>
+    
+    <!-- Swiper JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        // preventClicks: false,
+        preventClicksPropagation: false,
+        slidesPerView: 1,
+        spaceBetween: 0,
+        loop: true,
+        freeMode: false,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        breakpoints: {
+          361: {
+            slidesPerView: 2,
+            spaceBetween: 15,
+          },
+          600: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          // 700: {
+          //   slidesPerView: 4,
+          //   spaceBetween: 10,
+          // },
+          761: {
+            slidesPerView: 4,
+            spaceBetween: 15,
+          },
+          900: {
+            slidesPerView: 5,
+            spaceBetween: 15,
+          },
+        }
+      });
+    </script>
+  </body>
+ 
+</html>

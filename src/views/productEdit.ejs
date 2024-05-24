@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- HEAD -->
+    <head lang="en"> 
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Química Elohim-Editar producto</title> 
+        <base href = "/"> 
+        <link rel="icon" href= "/images/logo16.png" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="css/normalize.css" rel="stylesheet">
+        <link href="css/styleunificado.css" rel="stylesheet">
+    </head>
+    <!-- HEADER -->
+    <%- include('./partials/header') %>
+<body>
+    <main>
+        <section class="newProductSection">
+        <div class="container products-wrapper">
+		        <div class="row">
+			        <div class="col-12 titleContainerNP">
+				        <h2 class="products-title">Formulario de Edición de Productos</h2>
+			        </div>
+		        </div>
+            <div class="col-12 formulario-login">
+              <% productToEdit.forEach (item => { %> 
+            <form action="/product/edit/<%= item.id %>?_method=put" id="formNewProduct" method="post" enctype="multipart/form-data" class="newProductForm">
+                <!-- Nombre del Producto -->
+                <div class="form-group row">
+                    <label for="name"><h4 class="titleNewProduct">Nombre del producto </h4></label>
+                    <div class="col-sm-12">
+                        <input type="text" name="name" id="nameNewProduct" class="form-control input-textarea" placeholder="Ej. Galaxy S22" value="<%=locals.oldData && oldData.name ? oldData.name : item.name %>" >
+                    </div>
+                    <div class="ml-0 mr-0 mx-auto">
+                      <br>
+                      <h4 class="text-danger" id="titleError"></h4>
+                      <% if(locals.errors && errors.name) { %>
+                        <samp class="text-danger">
+                        <%= errors.name.msg %>
+                        </samp>
+                        <% } %>
+                    </div>
+                  </div>
+                  <!-- descripcion - textarea -->
+                  <div class="form-group row">
+                    <label for="description"><h4 class="titleNewProduct">Descripción</h4></label>
+                    <div class="col-sm-12">
+                        <textarea class="form-control input-textarea"  name="description" id="description" rows="3"><%=locals.oldData && oldData.description ? oldData.description : item.description %></textarea>
+                    </div>
+                    <div class="ml-0 mr-0 mx-auto">
+                      <br>
+                      <h4 class="text-danger" id="descriptionError"></h4>
+                      <% if(locals.errors && errors.description) { %>
+                        <samp class="text-danger">
+                        <%= errors.description.msg %>
+                        </samp>
+                        <% } %>
+                    </div>
+                  </div>
+                  <!-- imagen -->
+                  <div class="form-group row">
+                    <label for="images"><h4 class="titleNewProduct">Ingrese la imágen</h4></label>
+                    <div class="col-sm-12">
+                        <input type="file" name="images" class="form-control input-textarea" id="imagesNewProduct">
+                    </div>
+                    <div class="ml-0 mr-0 mx-auto">
+                      <br>
+                      <h4 class="text-danger" id="imagesError"></h4>
+                      <% if(locals.errors && errors.images) { %>
+                        <samp class="text-danger">
+                        <%= errors.images.msg %>
+                        </samp>
+                        <% } %>
+                    </div>
+                  </div>
+                  <!-- categoria -->
+                                    
+                   
+                    <div class="form-group row">
+                      <h4 class="titleNewProduct"> Categoría </h4>
+                    </div>
+                      <div class="col-sm-12 form-check-inline input-category ">
+                        <div class="form-check padding-left-grow-1">                          
+                          <input class="form-check-input" type="radio" name="category" value="phones" <% if (item.category == "phones") { %><%= 'checked' %><% }%>>
+                          <label class="form-check-label" for="category">  
+                            Celulares                                                     
+                          </label>
+                        </div>
+                       
+
+                        <div class="form-check padding-left-grow-1">
+                          <input class="form-check-input" type="radio" name="category" value="tablets" <% if (item.category == "tablets") { %><%= 'checked' %><% }%>>
+                          <label class="form-check-label" for="category">
+                            Tablet
+                          </label>
+                        </div>
+                        <div class="form-check padding-left-grow-1">
+                          <input class="form-check-input" type="radio"  name="category" value="laptops" <% if (item.category == "laptops") { %><%= 'checked' %><% }%>>
+                          <label class="form-check-label" for="category">
+                            Laptop
+                          </label>
+                        </div>
+                        
+                      </div>
+                      <div class="ml-0 mr-0 mx-auto">
+                        <br>
+                        <h4 class="text-danger"></h4>
+                        <% if(locals.errors && errors.category) { %>
+                          <samp class="text-danger">
+                          <%= errors.category.msg %>
+                          </samp>
+                          <% } %>
+                      </div>
+                      <div class="form-group row">
+                        <label for="brand"><h4 class="titleNewProduct"> Marca </h4></label>
+                        <% let marcas = ["Iphone", "Apple", "Samsung", "Motorola", "Huawei", "OnePlus", "Xiaomi"] %> 
+                        <select name="brand" id="brandNewProduct" class="form-control">
+                            <option >Elige la marca </option>
+                          <% marcas.forEach(brand => { %> 
+                            <option  value="<%= brand %>" <% if (item.brand == brand) { %><%= 'selected' %><% }%>><%= brand %> </option>
+                            <% }) %>
+                        </select> 
+                        <div class="ml-0 mr-0 mx-auto">
+                          <br>
+                          <h4 class="text-danger" id="brandError"></h4>
+                          <% if(locals.errors && errors.brand) { %>
+                            <samp class="text-danger">
+                            <%= errors.brand.msg %>
+                            </samp>
+                            <% } %>
+                        </div>                       
+                      </div>
+                      <div class="form-group row">
+                        <label for="section"><h4 class="titleNewProduct"> Sección </h4></label>
+                        <% let section = ["lo mas buscado", "celulares", "laptops", "tablets"] %> 
+                        <select name="section" id="sectionNewProduct" class="form-control">
+                            <option >Elige una sección </option>
+                          <% section.forEach(section => { %> 
+                            <option  value="<%= section %>" <% if (item.section == section) { %><%= 'selected' %><% }%>><%= section %> </option>
+                            <% }) %>
+                        </select>
+                        <div class="ml-0 mr-0 mx-auto">
+                          <br>
+                          <h4 class="text-danger" id="sectionError"></h4>
+                          <% if(locals.errors && errors.section) { %>
+                            <samp class="text-danger">
+                            <%= errors.section.msg %>
+                            </samp>
+                            <% } %>
+                        </div>
+                      </div>
+
+                      <div class="price-discount form-group">
+                        <div class="col-6 col-md-6">
+                          <label  for="price" class="newProductLabel"> <h4 class="titleNewProduct"> Precio $ </h4>   </label>
+                          <input type="number" name="price" id="priceNewProduct" class="newProductInput" min="1" step=".01" value="<%= locals.oldData && oldData.price ? oldData.price : item.price_product %>">
+                          <div class="ml-0 mr-0 mx-auto">
+                            <br>
+                            <h4 class="text-danger" id="priceError"></h4>
+                            <% if(locals.errors && errors.price) { %>
+                              <samp class="text-danger">
+                              <%= errors.price.msg %>
+                              </samp>
+                              <% } %>
+                          </div>
+                      </div>
+                   
+                      <div class="col-6 col-md-6">
+                          <label  for="price" class="newProductLabel"> <h4 class="titleNewProduct">Descuento </h4></label>
+                          <input type="number" name="discount" id="discountNewProduct" class="newProductInput" step=".01" value="<%= locals.oldData && oldData.discount ? oldData.discount : item.discount %>">
+                          <div class="ml-0 mr-0 mx-auto">
+                            <br>
+                            <h4 class="text-danger" id="discountError"></h4>
+                            <% if(locals.errors && errors.discount) { %>
+                              <samp class="text-danger">
+                              <%= errors.discount.msg %>
+                              </samp>
+                              <% } %>
+                          </div>
+                      </div>
+
+                      </div>
+                      
+                                      
+                  <div class="form-group">
+                    <div class="col-sm-12 ">
+                      <button type="submit" class=" submit-login btn-create">Editar Producto</button>
+                    </div>
+                    <div class="ml-0 mr-0 mx-auto">
+                      <br>
+                      <h4 class="text-danger" id="newProductError"></h4>
+                    </div>
+                  </div>
+                  </form>
+                  <% }) %>
+            </div>
+        </div>
+        </section>
+    </main>
+    <!-- FOOTER -->
+    <%- include('./partials/footer') %>
+    <script src="/js/newEditProduct.js"></script>
+</body>
+</html>
