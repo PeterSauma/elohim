@@ -20,6 +20,7 @@ const storage = multer.diskStorage({
 
 const uploadFile = multer({ storage: storage });
 
+
 // Validaciones de Creacion y Edición de Producto
 
 const validationsNewProduct = [
@@ -30,9 +31,9 @@ const validationsNewProduct = [
    .isFloat({ min:1}).withMessage('el precio no puede ser 0'),
    body('discount').notEmpty().withMessage('Si no aplica descuento, escribir 0')
    .isInt({ min:0, max: 95}).withMessage('El descuento debe ser un número entre 0 y 95'),
-   body('category').isIn(['phones', 'tablets', 'laptops']).withMessage('Por favor, seleccionar una de las opciones'),
-   body('brand').isIn(["Iphone","Apple","Samsung", "Motorola", "Huawei", "OnePlus", "Xiaomi"]).withMessage('Por favor, seleccionar una de las opciones'),
-   body('section').isIn(["lo mas buscado", "celulares", "laptops", "tablets"]).withMessage('Por favor, seleccionar una de las opciones'),
+   body('category').isIn(['phones', 'tablets', 'laptops', 'ropa', 'detergentes', 'pisos', 'cosmetica', 'autos']).withMessage('Por favor, seleccionar una de las opciones'),
+   body('brand').isIn(["Iphone","Apple","Samsung", "Motorola", "Huawei", "OnePlus", "Xiaomi", "Jabón Económico", "Jabón con Oxi", "Jabón Lavandería", "Suavizante", "Perfumina", "Detergente 30%", "Detergente 70%", "Detergente Lavavajillas", "Desinfectante", "Desodorante", "Atrapapolvo", "Jabon de manos", "Shampoo", "Acondicionador", "Perfumes", "Alohol neutro", "Crema"]).withMessage('Por favor, seleccionar una de las opciones'),
+   body('section').isIn(["lo mas buscado", "celulares", "laptops", "tablets", "x1000L", "x200L", "x50L", "x5L", "x1L"]).withMessage('Por favor, seleccionar una de las opciones'),
    body('images').custom((value, {req})=>{
        let file = req.file
        let acceptedExtensions = ['.jpg','.jpeg', '.png', '.gif']
@@ -62,9 +63,9 @@ const validationsEditProduct = [
     .isFloat({ min:1}).withMessage('el precio no puede ser 0'),
     body('discount').notEmpty().withMessage('Si no aplica descuento, escribir 0')
     .isInt({ min:0, max: 95}).withMessage('El descuento debe ser un número entre 0 y 95'),
-    body('category').isIn(['phones', 'tablets', 'laptops']).withMessage('Por favor, seleccionar una de las opciones'),
-    body('brand').isIn(["Iphone","Apple","Samsung", "Motorola", "Huawei", "OnePlus", "Xiaomi"]).withMessage('Por favor, seleccionar una de las opciones'),
-    body('section').isIn(["lo mas buscado", "celulares", "laptops", "tablets"]).withMessage('Por favor, seleccionar una de las opciones'),
+    body('category').isIn(['phones', 'tablets', 'laptops', 'ropa', 'detergentes', 'pisos', 'cosmetica', 'autos']).withMessage('Por favor, seleccionar una de las opciones'),
+    body('brand').isIn(["Iphone","Apple","Samsung", "Motorola", "Huawei", "OnePlus", "Xiaomi","Jabón Económico", "Jabón con Oxi", "Jabón Lavandería", "Suavizante", "Perfumina", "Detergente 30%", "Detergente 70%", "Detergente Lavavajillas", "Desinfectante", "Desodorante", "Atrapapolvo", "Jabon de manos", "Shampoo", "Acondicionador", "Perfumes", "Alohol neutro", "Crema"]).withMessage('Por favor, seleccionar una de las opciones'),
+    body('section').isIn(["lo mas buscado", "celulares", "laptops", "tablets", "x1000L", "x200L", "x50L", "x5L", "x1L"]).withMessage('Por favor, seleccionar una de las opciones'),
     body('images').custom((value, {req})=>{
         let file = req.file
         let acceptedExtensions = ['.jpg','.jpeg', '.png', '.gif']

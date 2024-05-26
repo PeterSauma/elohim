@@ -8,7 +8,7 @@ function iniciarMap(){
     var marker = new google.maps.Marker({
       position: coord,
       map: map,
-      title: "Tecnomundo",
+      title: "Elohim",
       animation: google.maps.Animation.BOUNCE
     });
 }

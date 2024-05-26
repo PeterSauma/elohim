@@ -104,7 +104,7 @@ window.addEventListener('load', ()=> {
 
     //discount
     discountNewProduct.addEventListener('blur', () => {
-        if(discountNewProduct.value <= 0) {
+        if(discountNewProduct.value < 0) {
             erroresNewProduct.discount = 'Ingrese un valor mayor a 0';
             discountError.innerHTML = erroresNewProduct.discount;
         } else {
