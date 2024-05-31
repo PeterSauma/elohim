@@ -615,7 +615,7 @@ animation: animated-text 8s steps(29,end) 1s 1 normal both,
     margin: auto;
 }
 
-section.section-set-display.seccion02, .seccion03, .seccion04  {
+section.section-set-display.seccion02, .seccion03, .seccion04, .seccion05, .seccion06 , .seccion07 , .seccion08 , .seccion09 {
 
     display: flex;
     justify-content: space-around;
@@ -728,7 +728,8 @@ h2.typing.seccion1 a{
     /* border-radius: 45%;
     object-fit: scale-down; */
     background-color: #f1f8fd;
-    border: none
+    border: none;
+    object-fit: contain;
 }  
 
 .imgOferta {
@@ -2563,7 +2564,7 @@ div.card-footer{
         margin: auto;
 
     }
-    section.section-set-display.seccion02, .seccion03, .seccion04  {
+    section.section-set-display.seccion02, .seccion03, .seccion04, .seccion05, .seccion06 , .seccion07 , .seccion08 , .seccion09 {
         display: flex;
         justify-content: space-around;
         width: 100%;
@@ -2729,7 +2730,7 @@ div.card-footer{
         margin: 0px 13px
     }
 
-    section.section-set-display.sección01, .seccion02, .seccion03, .seccion04{
+    section.section-set-display.sección01, .seccion02, .seccion03, .seccion04, .seccion05, .seccion06 , .seccion07 , .seccion08 , .seccion09 {
 
         height: 52vh;
         width: 88vw;
@@ -2968,7 +2969,7 @@ div.card-footer{
     }
     
 
-    section.section-set-display.sección01, .seccion02, .seccion03, .seccion04{
+    section.section-set-display.sección01, .seccion02, .seccion03, .seccion04, .seccion05, .seccion06 , .seccion07 , .seccion08 , .seccion09 {
 
         height: 44vh;
         width: 92vw;

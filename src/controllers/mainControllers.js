@@ -15,7 +15,18 @@ const controller = {
             let phones = await db.Product.findAll({ where : {category:'phones'}});
             let tablets = await db.Product.findAll({ where : {category:'tablets'}}); 
             let laptops = await db.Product.findAll({ where : {category:'laptops'}}); 
-            return   res.render(path.join(__dirname,'../views/index'), {article: article, searchedProducts: shuffle(searchedProducts), phones: shuffle(phones), tablets :shuffle(tablets), laptops: shuffle(laptops)})
+            let ropa = await db.Product.findAll({ where : {category:'ropa'}});
+            let detergentes = await db.Product.findAll({ where : {category:'detergentes'}});
+            let pisos = await db.Product.findAll({ where : {category:'pisos'}});
+            let cosmetica = await db.Product.findAll({ where : {category:'cosmetica'}});
+            let autos = await db.Product.findAll({ where : {category:'autos'}});
+            return   res.render(path.join(__dirname,'../views/index'), {article: article, 
+                                                                        searchedProducts: shuffle(searchedProducts), phones: shuffle(phones), tablets :shuffle(tablets), laptops: shuffle(laptops), 
+                                                                        ropa: shuffle(ropa), 
+                                                                        detergentes: shuffle(detergentes), 
+                                                                        pisos: shuffle(pisos), 
+                                                                        cosmetica: shuffle(cosmetica), 
+                                                                        autos: shuffle(autos)})
     },
     //lista de lo más buscado
     searchedProducts: (req,res) =>{
@@ -49,6 +60,48 @@ const controller = {
             })
         .catch(error => res.send(error));
     },
+    //lista de ropa
+    ropa: (req,res) =>{
+        db.Product.findAll({where:{category:'ropa'}})
+            .then((products) => {
+                return res.render('listProducts', { products: products });
+            })
+        .catch(error => res.send(error));
+    },
+    //lista de detergentes
+    detergentes: (req,res) =>{
+        db.Product.findAll({where:{category:'detergentes'}})
+            .then((products) => {
+                return res.render('listProducts', { products: products });
+            })
+        .catch(error => res.send(error));
+    },
+    //lista de pisos
+    pisos: (req,res) =>{
+        db.Product.findAll({where:{category:'pisos'}})
+            .then((products) => {
+                return res.render('listProducts', { products: products });
+            })
+        .catch(error => res.send(error));
+    },
+    //lista de cosmetica
+    cosmetica: (req,res) =>{
+        db.Product.findAll({where:{category:'cosmetica'}})
+            .then((products) => {
+                return res.render('listProducts', { products: products });
+            })
+        .catch(error => res.send(error));
+    },
+    //lista de autos
+    autos: (req,res) =>{
+        db.Product.findAll({where:{category:'autos'}})
+            .then((products) => {
+                return res.render('listProducts', { products: products });
+            })
+        .catch(error => res.send(error));
+    },
+
+    
     //formulario de busqueda
     search: (req,res) =>{
         //capturo el string que busca el usuaria que viaja por la url
