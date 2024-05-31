@@ -1,210 +1,199 @@
 
 <!DOCTYPE html> 
 <html>
-     <!-- HEAD -->
-    <title>Química Elohim-Mi carrito</title> 
-     <%- include('./partials/head') %>
+<!-- HEAD -->
+<title>Química Elohim-Mi carrito</title> 
+<%- include('./partials/head') %>
 
-    </head>
-    <body class="body-carrito">
-      <!-- HEADER -->
-      <%- include('./partials/header') %>
+</head>
+<body class="body-carrito">
+<!-- HEADER -->
+<%- include('./partials/header') %>
         
-      <!-- MAIN -->
-    <main class="main-carrito container-detail">
-          <div class="shopping-cart">
-            <a href="/product/productCart" title=" Tus Compras"><i class="fa-solid fa-cart-shopping" ></i></a>
-            <h1>Mi Carrito</h1>
+<!-- MAIN -->
+<main class="main-carrito container-detail">
+  <% if (locals.usuario && locals.usuario.role == 9){ %>
+    <!--Cuando ha iniciado secion y es admin -->
+    <!-- Encabezado -->
+    <div class="shopping-cart">
+      <a href="/product/productCart" title=" Tus Compras"><i class="fa-solid fa-cart-shopping" ></i></a>
+      <h1>Mi Carrito</h1>
+    </div>
+    <!-- Productos seleccionados para comprar -->
+    <Section class="cart-container">
+        
+    </Section>
+        
+    <!-- template carrito -->
+    <template id="template-carrito">
+      <article class="article-margin-padding cart-items">
+        <div class="img-items">
+          <img src="images/Celulares/1.jpg" alt="imagen-item-1">
+        </div>
+        <div class="description-item">
+          <h4 class="name">Nombre</h4>
+          <h4 class="description h4-carrito">Motorola Moto E7 Plus - Smartphone 64GB, 4GB RAM, Dual Sim, Navy Blue</h4>
+          <div class="counter"> 
+            <div class="btn"><i class="fa-solid fa-circle-minus"></i></i></div>
+            <span class=number>0</span>
+            <div class="btn">
+              <i class="fa-solid fa-circle-plus"></i>
+            </div>
           </div>
-          <Section class="cart-container">
-              
-          </Section>
-          
-          <!-- template carrito -->
+          <div class="price">
+            <div class="amount">$ 50.00</div>
+          </div>
+          <div class="remove-button"><button type="button" class="remove">Borrar</button></div>
+        </div>
+      </article>
+    </template>
+    <!-- fin template carrito -->
 
-          <template id="template-carrito">
-            <article class="article-margin-padding cart-items">
-            <div class="img-items">
-              <img src="images/Celulares/1.jpg" alt="imagen-item-1">
-            </div>
-            <div class="description-item">
-              <h4 class="name">Nombre</h4>
-              <h4 class="description h4-carrito">Motorola Moto E7 Plus - Smartphone 64GB, 4GB RAM, Dual Sim, Navy Blue</h4>
-                <div class="counter"> 
-                  <div class="btn"><i class="fa-solid fa-circle-minus"></i></i></div>
-                  <span class=number>0</span>
-                 <div class="btn">
-                   <i class="fa-solid fa-circle-plus"></i>
-                  </div>
-                </div>
-                <div class="price">
-                  <div class="amount">$ 50.00</div>
-                
-                </div>
-                <div class="remove-button"><button type="button" class="remove">Borrar</button></div>
-            </div>
-          </article>
-          </template>
-
-          
-        <!-- fin template carrito -->
-          <section class="discount-checkout">
-            <article class="article-margin-padding discount">
-              <div>
-                <h3 class="discount-code">Codigo de Descuento</h3>
+    <!-- Panel de compra -->
+    <section class="discount-checkout">
+      <article class="article-margin-padding discount">
+        <div>
+          <h3 class="discount-code">Codigo de Descuento</h3>
+        </div>
+        <div class="discount-container">
+          <form>
+            <label for="discount">
+              <input class="discount-box" type="text" name="discount" id="discount-input" />
+            </label>
+              <input class="discount-button" type="submit" id="discount-button" value="Aplicar"/>
+          </form>
+        </div>
+      </article>
+      <article class="article-margin-padding checkout">
+        <div class="subtotal-box">
+          <div class="flex-grow-70"><h4 class="subtotal">Subtotal</h4></div>
+          <div><h4 class="price-total" id="subtotal">0</h4></div>
+        </div>
+        <div class="subtotal-box discount-code-box" id="discount-code-box">
+          <div class="flex-grow-70"><h4 class="subtotal h4-discount">Codigo de Descuento</h4></div>
+          <div><h4 class="price-total" id="discount">0</h4></div>
+        </div>
+        <div class="total-box">
+          <div class="flex-grow-70"><h4 class="total">Total</h4></div>
+          <div><h4 class="price-total" id="total">0</h4></div>
+        </div>
+        <div action="product/checkout" class="checkout-buttom">
+          <form class="card-body" id="checkoutCart">
+            <div class="row checkout">
+              <div class=" col-md-6 mb-4 tipoenvio">
+                <!-- <div class="select-sender">
+                  Elija un tipo de envio.
+                </div> -->
+                <label class="tipoEnvio" for="country">Tipo Envio</label>
+                <select class="custom-select d-block w-100" id="shippingMethod" name=" shippingMethod"
+                  required="">
+                  <option value="">Elegir...</option>
+                  <option value="Cadete">Cadete</option>
+                  <option value="Correo">Correo Argentino</option>
+                  <option value="Andreani">Andreani</option>
+                  <option value="DHL">DHL</option>
+                </select>
               </div>
-              <div class="discount-container">
-                <form>
-                  <label for="discount">
-                    <input class="discount-box" type="text" name="discount" id="discount-input" />
-                  </label>
-                    <input class="discount-button" type="submit" id="discount-button" value="Aplicar"/>
-                </form>
+              <div class=" col-md-6 mb-4">
+                <!-- <div class="select-payment">
+                  Elija un Medio de Pago.
+                </div> -->
+                <label class="formaPago" for="country">Pago</label>
+                <select class="custom-select d-block w-100" id="paymentMethod" name="paymentMethod" required="">
+                  <option value="">Elegir...</option>
+                  <option value="Efectivo">Efectivo</option>
+                  <option value="Débito">Tarjeta Débito</option>
+                  <option value="Crédito">Tarjeta Crédito</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" id="checkoutCart">Finalizar Compra</button>
+          </form>
+        </div>
+        <div class="checkout-continue"><button onclick="location.href='product'">Continuar Comprando</button></div>              
+      </article>
+    </section>
+    
+    <!--Sugerir copras -->
+    <div class="suggestion suggestion-title-box">
+      <h2 class="suggestion-title">A personas como tu le interesaron los siguientes productos</h2>
+    </div>       
+    <section class="section-set-display sección01">
+      <div class="swiper mySwiper seccion1">
+        <div class="swiper-wrapper">
+          <% for (i = 0; i < searchedProducts.length; i++) { %> 
+          <div class="swiper-slide bckSwiper">
+            <article class="article-style bckArticle">
+              <div class="bckCard seccion1">
+              </div>
+              <div class="imgProduct seccion1">
+                <img onclick="location.href='product/productDetail/<%= searchedProducts[i].id%>'" src="images/products/<%= searchedProducts[i].image_product %>" alt="<%= searchedProducts[i].name %>"/>
+              </div>
+              <div class="descriptionProduct seccion1">  
+                <div class="title seccion1">
+                  <h5><%= searchedProducts[i].name %></h5>
+                </div>               
               </div>
             </article>
-            <article class="article-margin-padding checkout">
-              <div class="subtotal-box">
-                <div class="flex-grow-70"><h4 class="subtotal">Subtotal</h4></div>
-                <div><h4 class="price-total" id="subtotal">0</h4></div>
-              </div>
-              <div class="subtotal-box discount-code-box" id="discount-code-box">
-                <div class="flex-grow-70"><h4 class="subtotal h4-discount">Codigo de Descuento</h4></div>
-                <div><h4 class="price-total" id="discount">0</h4></div>
-              </div>
-              <div class="total-box">
-                <div class="flex-grow-70"><h4 class="total">Total</h4></div>
-                <div><h4 class="price-total" id="total">0</h4></div>
-              </div>
-              <div action="product/checkout" class="checkout-buttom">
-                <form class="card-body" id="checkoutCart">
-                  <div class="row checkout">
-                    <div class=" col-md-6 mb-4 tipoenvio">
-                      <!-- <div class="select-sender">
-                        Elija un tipo de envio.
-                    </div> -->
-                        <label class="tipoEnvio" for="country">Tipo Envio</label>
-                        <select class="custom-select d-block w-100" id="shippingMethod" name=" shippingMethod"
-                            required="">
-                            <option value="">Elegir...</option>
-                            <option value="Cadete">Cadete</option>
-                            <option value="Correo">Correo Argentino</option>
-                            <option value="Andreani">Andreani</option>
-                            <option value="DHL">DHL</option>
-                        </select>
-                    </div>
-                    <div class=" col-md-6 mb-4">
-                      <!-- <div class="select-payment">
-                        Elija un Medio de Pago.
-                    </div> -->
-                        <label class="formaPago" for="country">Pago</label>
-                        <select class="custom-select d-block w-100" id="paymentMethod" name="paymentMethod"
-                            required="">
-                            <option value="">Elegir...</option>
-                            <option value="Efectivo">Efectivo</option>
-                            <option value="Débito">Tarjeta Débito</option>
-                            <option value="Crédito">Tarjeta Crédito</option>
-                        </select>
-                       
-    
-                    </div>
-                </div>
-          
-                <button type="submit" id="checkoutCart">Finalizar Compra</button>
-
-                </form>
-              </div>
-              <div class="checkout-continue"><button onclick="location.href='product'">Continuar Comprando</button></div>              
-            </article>
-            
-          </section>
-          
-            <div class="suggestion suggestion-title-box">
-              <h2 class="suggestion-title">A personas como tu le interesaron los siguientes productos</h2>
-            </div>       
-           
-          <section class="section-set-display sección01">
-            <div class="swiper mySwiper seccion1">
-              <div class="swiper-wrapper">
-              <% for (i = 0; i < searchedProducts.length; i++) { %> 
-              <div class="swiper-slide bckSwiper">
-                 <article class="article-style bckArticle">
-                   <div class="bckCard seccion1">
-                     </div>
-                   <div class="imgProduct seccion1">
-                   <img onclick="location.href='product/productDetail/<%= searchedProducts[i].id%>'"
-                      src="images/products/<%= searchedProducts[i].image_product %>" 
-                      alt="<%= searchedProducts[i].name %>"/>
-                   </div>
-                  
-    
-                   <div class="descriptionProduct seccion1">  
-                   <div class="title seccion1">
-                     <h5><%= searchedProducts[i].name %></h5>
-                   </div>               
-                   </div>
-                          
-            
-                </article>
-              </div>
-    
-         
-          
-            <% } %>
-              </div>
-            <div class="swiper-pagination"></div>
-             </div>
-          </section>
-         
-        </main>
-        <footer>
-          <div class="footer-container">
-            <div class="footer-logo"><a href="/home" target="_blank" title="Principal"><img src="/images/logos/logo15.png" alt="Logo-TecnoMundo"></a></div>
-            <div><h6>Al comprar se aceptan los <a class="tyc" href="#"> Términos y Condiciones</a></h6></div>
-            <div><h5>Copyright 2024 | Todos los derechos reservados QuímicaElohim.com | Mendoza | Argentina</h5></div>
-            <div><p>Las fotos son a modo ilustrativo. La venta de cualquiera de los productos publicados está sujeta a la verificación de stock. Los precios online y los planes de financiación para los productos presentados/publicados en www.QuimicaElohim.com son válidos exclusivamente para la compra vía internet en las página antes mencionada. Las especificaciones técnicas y descripciones están sujetas a cambios sin previo aviso.</p></div>
           </div>
-          <div class="data-fiscal-container"><a href="https://www.afip.gob.ar" target="_blank" title="AFIP"><img src="images/data-fiscal.jpg" alt="data-fiscal"/></a></div>
-        </footer>
-        <script src="/js/productCart.js"></script>
-          <!-- Swiper JS -->
+          <% } %>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+  <% } else{ %>
+    <div style="margin: 30px 0px 30px 10px;"><h1>Contenido exclusivo para administrador</h1></div>
+  <% } %>
+</main>
+<footer>
+  <div class="footer-container">
+    <div class="footer-logo"><a href="/home" target="_blank" title="Principal"><img src="/images/logos/logo15.png" alt="Logo-TecnoMundo"></a></div>
+    <div><h6>Al comprar se aceptan los <a class="tyc" href="#"> Términos y Condiciones</a></h6></div>
+    <div><h5>Copyright 2024 | Todos los derechos reservados QuímicaElohim.com | Mendoza | Argentina</h5></div>
+    <div><p>Las fotos son a modo ilustrativo. La venta de cualquiera de los productos publicados está sujeta a la verificación de stock. Los precios online y los planes de financiación para los productos presentados/publicados en www.QuimicaElohim.com son válidos exclusivamente para la compra vía internet en las página antes mencionada. Las especificaciones técnicas y descripciones están sujetas a cambios sin previo aviso.</p></div>
+  </div>
+  <div class="data-fiscal-container"><a href="https://www.afip.gob.ar" target="_blank" title="AFIP"><img src="images/data-fiscal.jpg" alt="data-fiscal"/></a></div>
+</footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script src="/js/productCart.js"></script>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
-    <!-- Initialize Swiper -->
-    <script>
-      var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 1,
-        spaceBetween: 0,
-        loop: true,
-        freeMode: true,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        breakpoints: {
-          361: {
-            slidesPerView: 2,
-            spaceBetween: 10,
-          },
-          600: {
-            slidesPerView: 3,
-            spaceBetween: 20,
-          },
-          // 700: {
-          //   slidesPerView: 4,
-          //   spaceBetween: 10,
-          // },
-          761: {
-            slidesPerView: 4,
-            spaceBetween: 15,
-          },
-          900: {
-            slidesPerView: 5,
-            spaceBetween: 15,
-          },
-        }
-      });
-    </script>
-    </body>
+<!-- Initialize Swiper -->
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    loop: true,
+    freeMode: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+      361: {
+        slidesPerView: 2,
+        spaceBetween: 10,
+      },
+      600: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+      // 700: {
+      //   slidesPerView: 4,
+      //   spaceBetween: 10,
+      // },
+      761: {
+        slidesPerView: 4,
+        spaceBetween: 15,
+      },
+      900: {
+        slidesPerView: 5,
+        spaceBetween: 15,
+      },
+    }
+  });
+</script>
+</body>
     
 </html>
