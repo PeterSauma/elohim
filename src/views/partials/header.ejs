@@ -41,7 +41,7 @@
 
 
         <% if (locals.usuario && locals.usuario.role == 9){ %>
-            <!--Cuando ha iniciado secion-->
+            <!--Cuando ha iniciado secion y es admin -->
             <!-- Imagen usuario -->
             <div class="user-img">
                 <img  src="/images/users/<%=locals.usuario.image_product %>"  alt="usuario">
@@ -55,6 +55,11 @@
                 <a href="/product/productCart" id="cart-icon" title=" Tus Compras">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </a>           
+            </div>
+        <% } else if (locals.usuario) { %>
+            <!-- Logout -->
+            <div class="user-login">
+                <a href="/user/logout"  title="Logout" class="logout"><i class="fa-solid fa-right-from-bracket"></i></a>
             </div>
         <% } else{ %>
             <!--Cuando no ha iniciado secion no quiero mostrar nada -->
