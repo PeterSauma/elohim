@@ -432,6 +432,7 @@ h2{
 }
 
 .slider-frame img {
+    object-fit: contain;
 	width: 24.3%;
     padding-top: 10px;
     max-height: 50vh;
@@ -2564,7 +2565,7 @@ div.card-footer{
         margin: auto;
 
     }
-    section.section-set-display.seccion02, .seccion03, .seccion04, .seccion05, .seccion06 , .seccion07 , .seccion08 , .seccion09 {
+    section.section-set-display.seccion02, .seccion03, .seccion04, .seccion05, .seccion06  {
         display: flex;
         justify-content: space-around;
         width: 100%;
@@ -3370,7 +3371,7 @@ div.card-footer{
     }
     
     .slider-frame ul {
-        background-color: #929292;
+        background-color: #2357B8;
         justify-content: center;
         display: flex;
         

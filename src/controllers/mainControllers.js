@@ -21,7 +21,7 @@ const controller = {
             let cosmetica = await db.Product.findAll({ where : {category:'cosmetica'}});
             let autos = await db.Product.findAll({ where : {category:'autos'}});
             return   res.render(path.join(__dirname,'../views/index'), {article: article, 
-                                                                        searchedProducts: shuffle(searchedProducts), phones: shuffle(phones), tablets :shuffle(tablets), laptops: shuffle(laptops), 
+                                                                        searchedProducts: shuffle(searchedProducts), 
                                                                         ropa: shuffle(ropa), 
                                                                         detergentes: shuffle(detergentes), 
                                                                         pisos: shuffle(pisos), 

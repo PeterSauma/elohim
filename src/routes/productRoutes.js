@@ -22,7 +22,6 @@ const uploadFile = multer({ storage: storage });
 
 
 // Validaciones de Creacion y Edición de Producto
-
 const validationsNewProduct = [
    body('name').notEmpty().withMessage('Tienes que ingresar el nombre del producto')
    .isLength({ min: 5 }).withMessage('El nombre del articulo debe tener al menos 5 caracteres.'),
@@ -54,7 +53,6 @@ const validationsNewProduct = [
 ]
 
 // La única diferencia con la validación de New Product es que la validación custom de la imagen en la de Edit no incluye sí la imagen fue subida ya que en ese caso se utilizaría la imagen vieja
-
 const validationsEditProduct = [
     body('name').notEmpty().withMessage('Tienes que ingresar el nombre del producto')
     .isLength({ min: 5 }).withMessage('El nombre del articulo debe tener al menos 5 caracteres.'),
@@ -79,15 +77,19 @@ const validationsEditProduct = [
         return true
     })
  ]
+
+
+
 // routes
 
 //List products
 router.get("/", productControllers.listProducts);
+
 //Prpduct Cart
 router.get("/productCart", checkoutMiddleware, productControllers.cart );
+
 //Product Detail
 router.get("/productDetail/:id", productControllers.productDetail);
-
 
 // Create a new product
 router.get('/create', adminMiddleware,  productControllers.newProduct)
@@ -96,14 +98,12 @@ router.post('/store', adminMiddleware, uploadFile.single("images"), validationsN
 //Delete products
 router.delete("/delete/:id", adminMiddleware, productControllers.delete)
 
-
 // Edit products
 router.get("/edit/:id", adminMiddleware, productControllers.editView)
 router.put("/edit/:id", adminMiddleware, uploadFile.single("images"), validationsEditProduct, productControllers.editProduct)
 
 //Checkout 
 router.get("/checkout", productControllers.checkout);
-
 
 module.exports = router;
 

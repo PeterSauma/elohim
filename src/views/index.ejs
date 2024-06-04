@@ -79,141 +79,11 @@
   <!-- CATEGORIAS -->
   <div class="body-menu">
 
-    <!-- Celulares -->
-    <div >
-      <h2><a href="/phones">Celulares</a></h2>
-    </div>
-    <section class="section-set-display seccion02">
-      <div class="swiper swiper-section mySwiper">
-        <div class="swiper-wrapper">
-      
-          <% for (i = 0; i < 6; i++) { %> 
-            <div class="swiper-slide">
-        <article class="article-style">
-          <div class="bckCard">
-            <img onclick="location.href='product/productDetail/<%= phones[i].id%>'"
-              src="images/products/<%= phones[i].image_product %>" 
-              alt="<%= phones[i].name %>"
-            />
-          </div>
-          <% if (phones[i].discount != 0) { %>
-            <div class="imgOferta-phones"><img src="images/oferta/oferta1.png" alt="oferta"></div>
-            <% } %>
-          
-          <div class="descriptionProduct-seccion">  
-            <div class="title title-section">
-              
-              <h5><%= phones[i].name %></h5>
-              
-            </div>
-            <div class="price">
-              <h5>$ <%= (((100 - phones[i].discount)/100)*phones[i].price_product).toFixed(0) %> </h5>
-              
-            </div>
-
-            
-          </div>
-          <div class="buttomVerProducto">
-            <a style="text-decoration:none" onclick="location.href='product/productDetail/<%= phones[i].id%>'">VER PRODUCTO</a>
-          </div>
-        </article>
-      </div>
-
-    
-    
-      <% } %>
-        </div>
-      <div class="swiper-pagination"></div>
-        </div>
-    </section>
-
-    <!-- Tablets -->
-    <div>
-        <h2><a href="/tablets">Tablets</a></h2>
-    </div>
-    <section class="section-set-display seccion03">
-      <div class="swiper swiper-section mySwiper">
-        <div class="swiper-wrapper">
-      <% for (i = 0; i < 6; i++) { %> 
-        <div class="swiper-slide">
-        <article class="article-style">
-          <div class="bckCard">
-            <img onclick="location.href='product/productDetail/<%= tablets[i].id%>'"
-            src="images/products/<%= tablets[i].image_product %>" 
-            alt="<%= tablets[i].name %>"
-          />
-          </div>
-          <% if (tablets[i].discount != 0) { %>
-            <div class="imgOferta"><img src="images/oferta/oferta1.png" alt="oferta"></div>
-            <% } %>
-        
-
-          <div class="descriptionProduct-seccion">  
-            <div class="title title-section">
-              <h5><%= tablets[i].name %></h5>
-            </div>
-            <div class="price secciones">
-              <h5>$ <%= tablets[i].price_product %> </h5>
-            </div>
-            
-                          
-          </div>
-          <div class="buttomVerProducto">
-            <a style="text-decoration:none" onclick="location.href='product/productDetail/<%= tablets[i].id%>'">VER PRODUCTO</a>
-          </div>
-        </article>
-      </div>
-      <% } %>
-        </div>
-      <div class="swiper-pagination"></div>
-        </div>
-    </section>
-
-    <!-- Laptops -->
-    <div>
-      <h2><a href="/laptops">Laptops</a></h2>
-    </div>
-    <section class="section-set-display seccion04">
-      <div class="swiper swiper-section mySwiper">
-        <div class="swiper-wrapper">
-          <% for (i = 0; i < 6; i++) { %> 
-            <div class="swiper-slide">
-              <article class="article-style">
-                <div class="bckCard">
-                  <img onclick="location.href='product/productDetail/<%= laptops[i].id%>'" 
-                  src="images/products/<%= laptops[i].image_product %>" 
-                  alt="<%= laptops[i].name %>"/>
-                </div>
-                <% if (laptops[i].discount != 0) { %>
-                  <div class="imgOferta"><img src="images/oferta/oferta1.png" alt="oferta"></div>
-                <% } %>
-                <div class="descriptionProduct-seccion">  
-                  <div class="title title-section">
-                    <h5><%= laptops[i].name %></h5>
-                  </div>
-                  <div class="price secciones">
-                    <h5>$ <%= laptops[i].price_product %> </h5>
-                  </div>
-                </div>
-                <div class="buttomVerProducto">
-                  <a style="text-decoration:none" 
-                  onclick="location.href='product/productDetail/<%= laptops[i].id%>'">
-                  VER PRODUCTO</a>
-                </div>
-              </article>
-            </div>
-          <% } %>
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-    </section>
-
-
     <!-- Cuidado de Ropa -->
     <div>
       <h2><a href="/ropa">Cuidado de Ropa</a></h2>
     </div>
-    <section class="section-set-display seccion04">
+    <section class="section-set-display seccion02">
       <div class="swiper swiper-section mySwiper">
         <div class="swiper-wrapper">
           <% for (i = 0; i < 4; i++) { %> 
@@ -248,7 +118,7 @@
     <div>
       <h2><a href="/detergentes">Detergentes y Desemgrasantes</a></h2>
     </div>
-    <section class="section-set-display seccion04">
+    <section class="section-set-display seccion03">
       <div class="swiper swiper-section mySwiper">
         <div class="swiper-wrapper">
           <% for (i = 0; i < 4; i++) { %> 
@@ -314,11 +184,11 @@
       </div>
     </section>
 
-    <!-- Perfumería (inhabilitado por falta de productos) -->
-    <!--div>
+    <!-- Perfumería  -->
+    <div>
       <h2><a href="/cosmetica">Perfumería</a></h2>
     </div>
-    <section class="section-set-display seccion04">
+    <section class="section-set-display seccion05">
       <div class="swiper swiper-section mySwiper">
         <div class="swiper-wrapper">
           <% for (i = 0; i < 3; i++) { %> 
@@ -347,13 +217,13 @@
         </div>
         <div class="swiper-pagination"></div>
       </div>
-    </section-->
+    </section>
     
     <!-- Autos -->
     <div>
       <h2><a href="/autos">Autos</a></h2>
     </div>
-    <section class="section-set-display seccion04">
+    <section class="section-set-display seccion06">
       <div class="swiper swiper-section mySwiper">
         <div class="swiper-wrapper">
           <% for (i = 0; i < 4; i++) { %> 
@@ -384,11 +254,11 @@
       </div>
     </section>
 
-    <!-- Ofertas -->
+    <!-- Ofertas >
     <div class="imgofertas">
-      <img src="images/ofertacompu.png" alt="">
-      <img src="images/ofertatablets.png" alt="">
-    </div>
+      <img src="" alt="">
+      <img src="" alt="">
+    </div-->
     <!-- Delivery -->
     <div class="imgDelivery">
       <img src="images/logos/logoDelivery.png" alt=""> 
@@ -405,7 +275,6 @@
         /></a>
       </div>
     </section>
-  
   </div>
 
 </main>
