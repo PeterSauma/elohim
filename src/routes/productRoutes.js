@@ -30,9 +30,9 @@ const validationsNewProduct = [
    .isFloat({ min:1}).withMessage('el precio no puede ser 0'),
    body('discount').notEmpty().withMessage('Si no aplica descuento, escribir 0')
    .isInt({ min:0, max: 95}).withMessage('El descuento debe ser un número entre 0 y 95'),
-   body('category').isIn(['phones', 'tablets', 'laptops', 'ropa', 'detergentes', 'pisos', 'cosmetica', 'autos']).withMessage('Por favor, seleccionar una de las opciones'),
-   body('brand').isIn(["Iphone","Apple","Samsung", "Motorola", "Huawei", "OnePlus", "Xiaomi", "Jabón Económico", "Jabón con Oxi", "Jabón Lavandería", "Suavizante", "Perfumina", "Detergente 30%", "Detergente 70%", "Detergente Lavavajillas", "Desinfectante", "Desodorante", "Atrapapolvo", "Jabon de manos", "Shampoo", "Acondicionador", "Perfumes", "Alohol neutro", "Crema", "Shampoo Auto", "Brillagoma", "Perfume Auto", "Agua Destilada"]).withMessage('Por favor, seleccionar una de las opciones'),
-   body('section').isIn(["lo mas buscado", "celulares", "laptops", "tablets", "x1000L", "x200L", "x50L", "x5L", "x1L"]).withMessage('Por favor, seleccionar una de las opciones'),
+   body('category').isIn(['ropa', 'detergentes', 'pisos', 'cosmetica', 'autos']).withMessage('Por favor, seleccionar una de las opciones'),
+   body('brand').isIn(["Jabón Económico", "Jabón con Oxi", "Jabón Lavandería", "Suavizante", "Perfumina", "Detergente 30%", "Detergente 70%", "Detergente Lavavajillas", "Desengrasante", "Desengrasante Industrial", "Desinfectante", "Desodorante", "Atrapapolvo", "Jabon de manos", "Shampoo", "Acondicionador", "Perfumes", "Alohol neutro", "Crema", "Shampoo Auto", "Brillagoma", "Perfume Auto", "Agua Destilada"]).withMessage('Por favor, seleccionar una de las opciones'),
+   body('section').isIn(["lo mas buscado", "x1000L", "x200L", "x50L", "x5L", "x1L"]).withMessage('Por favor, seleccionar una de las opciones'),
    body('images').custom((value, {req})=>{
        let file = req.file
        let acceptedExtensions = ['.jpg','.jpeg', '.png', '.gif']
@@ -61,9 +61,9 @@ const validationsEditProduct = [
     .isFloat({ min:1}).withMessage('el precio no puede ser 0'),
     body('discount').notEmpty().withMessage('Si no aplica descuento, escribir 0')
     .isInt({ min:0, max: 95}).withMessage('El descuento debe ser un número entre 0 y 95'),
-    body('category').isIn(['phones', 'tablets', 'laptops', 'ropa', 'detergentes', 'pisos', 'cosmetica', 'autos']).withMessage('Por favor, seleccionar una de las opciones'),
-    body('brand').isIn(["Iphone","Apple","Samsung", "Motorola", "Huawei", "OnePlus", "Xiaomi","Jabón Económico", "Jabón con Oxi", "Jabón Lavandería", "Suavizante", "Perfumina", "Detergente 30%", "Detergente 70%", "Detergente Lavavajillas", "Desinfectante", "Desodorante", "Atrapapolvo", "Jabon de manos", "Shampoo", "Acondicionador", "Perfumes", "Alohol neutro", "Crema", "Shampoo Auto", "Brillagoma", "Perfume Auto", "Agua Destilada"]).withMessage('Por favor, seleccionar una de las opciones'),
-    body('section').isIn(["lo mas buscado", "celulares", "laptops", "tablets", "x1000L", "x200L", "x50L", "x5L", "x1L"]).withMessage('Por favor, seleccionar una de las opciones'),
+    body('category').isIn(['ropa', 'detergentes', 'pisos', 'cosmetica', 'autos']).withMessage('Por favor, seleccionar una de las opciones'),
+    body('brand').isIn(["Jabón Económico", "Jabón con Oxi", "Jabón Lavandería", "Suavizante", "Perfumina", "Detergente 30%", "Detergente 70%", "Detergente Lavavajillas", "Desengrasante", "Desengrasante Industrial", "Desinfectante", "Desodorante", "Atrapapolvo", "Jabon de manos", "Shampoo", "Acondicionador", "Perfumes", "Alohol neutro", "Crema", "Shampoo Auto", "Brillagoma", "Perfume Auto", "Agua Destilada"]).withMessage('Por favor, seleccionar una de las opciones'),
+    body('section').isIn(["lo mas buscado", "x1000L", "x200L", "x50L", "x5L", "x1L"]).withMessage('Por favor, seleccionar una de las opciones'),
     body('images').custom((value, {req})=>{
         let file = req.file
         let acceptedExtensions = ['.jpg','.jpeg', '.png', '.gif']
