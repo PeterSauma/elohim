@@ -12,9 +12,6 @@ const controller = {
     index : async(req, res)=>{
             let article = ["article01", "article02", "article03", "article04"];
             let searchedProducts = await db.Product.findAll({ where : {section:'lo mas buscado'}});
-            let phones = await db.Product.findAll({ where : {category:'phones'}});
-            let tablets = await db.Product.findAll({ where : {category:'tablets'}}); 
-            let laptops = await db.Product.findAll({ where : {category:'laptops'}}); 
             let ropa = await db.Product.findAll({ where : {category:'ropa'}});
             let detergentes = await db.Product.findAll({ where : {category:'detergentes'}});
             let pisos = await db.Product.findAll({ where : {category:'pisos'}});
@@ -36,30 +33,8 @@ const controller = {
             })
         .catch(error => res.send(error));
     },
-    //lista de phones
-    phones: (req,res) =>{
-        db.Product.findAll({where:{category:'phones'}})
-            .then((products) => {
-                return res.render('listProducts', { products: products });
-            })
-        .catch(error => res.send(error));
-    },
-    //lista de tablets
-    tablets: (req,res) =>{
-        db.Product.findAll({where:{category:'tablets'}})
-            .then((products) => {
-                return res.render('listProducts', { products: products });
-            })
-        .catch(error => res.send(error));
-    },
-    //lista de laptops
-    laptops: (req,res) =>{
-        db.Product.findAll({where:{category:'laptops'}})
-            .then((products) => {
-                return res.render('listProducts', { products: products });
-            })
-        .catch(error => res.send(error));
-    },
+
+    
     //lista de ropa
     ropa: (req,res) =>{
         db.Product.findAll({where:{category:'ropa'}})
