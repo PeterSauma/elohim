@@ -82,25 +82,6 @@
             <h4 class="titleNewProduct"> Categoría </h4>
           </div>
           <div class="col-sm-12 form-check-inline input-category ">
-            <div class="form-check padding-left-grow-1">                          
-              <input class="form-check-input" type="radio" name="category" value="phones" <% if (item.category == "phones") { %><%= 'checked' %><% }%>>
-              <label class="form-check-label" for="category">  
-                Celulares                                                     
-              </label>
-            </div>
-            <div class="form-check padding-left-grow-1">
-              <input class="form-check-input" type="radio" name="category" value="tablets" <% if (item.category == "tablets") { %><%= 'checked' %><% }%>>
-              <label class="form-check-label" for="category">
-                Tablet
-              </label>
-            </div>
-            <div class="form-check padding-left-grow-1">
-              <input class="form-check-input" type="radio"  name="category" value="laptops" <% if (item.category == "laptops") { %><%= 'checked' %><% }%>>
-              <label class="form-check-label" for="category">
-                Laptop
-              </label>
-            </div>
-
             <!--Ropa-->
             <div class="form-check padding-left-grow-1">
               <input class="form-check-input" type="radio" name="category" value="ropa" <%= locals.oldData && oldData.category == 'ropa' ? "checked" : null %>>
@@ -151,7 +132,7 @@
           <!-- Producto -->
           <div class="form-group row">
             <label for="brand"><h4 class="titleNewProduct"> Marca </h4></label>
-            <% let marcas = ["Iphone", "Apple", "Samsung", "Motorola", "Huawei", "OnePlus", "Xiaomi", "Jabón Económico", "Jabón con Oxi", "Jabón Lavandería", "Suavizante", "Perfumina", "Detergente 30%", "Detergente 70%", "Detergente Lavavajillas", "Desengrasante", "Desengrasante Industrial", "Desinfectante", "Desodorante", "Atrapapolvo", "Jabon de manos", "Shampoo", "Acondicionador", "Perfumes", "Alohol neutro", "Crema", "Shampoo Auto", "Brillagoma", "Perfume Auto", "Agua Destilada"] %> 
+            <% let marcas = ["Jabón Económico", "Jabón con Oxi", "Jabón Lavandería", "Suavizante", "Perfumina", "Detergente 30%", "Detergente 70%", "Detergente Lavavajillas", "Desengrasante", "Desengrasante Industrial", "Desinfectante", "Desodorante", "Atrapapolvo", "Jabon de manos", "Shampoo", "Acondicionador", "Perfumes", "Alohol neutro", "Crema", "Shampoo Auto", "Brillagoma", "Perfume Auto", "Agua Destilada"] %> 
             <select name="brand" id="brandNewProduct" class="form-control">
                 <option >Elige la marca </option>
               <% marcas.forEach(brand => { %> 

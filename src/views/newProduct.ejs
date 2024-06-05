@@ -35,7 +35,7 @@
           <div class="form-group row">
               <label for="name"><h4 class="titleNewProduct">Nombre del producto </h4></label>
               <div class="col-sm-12">
-                  <input type="text" name="name" id="nameNewProduct" class="form-control input-textarea" placeholder="Ej. Galaxy S22" value="<%= locals.oldData ? oldData.name : null %>">
+                  <input type="text" name="name" id="nameNewProduct" class="form-control input-textarea" placeholder="Jabón Skip Económico" value="<%= locals.oldData ? oldData.name : null %>">
               </div>
               <div class="ml-0 mr-0 ">
                 <br>
@@ -87,28 +87,6 @@
             <h4 class="titleNewProduct"> Categoría </h4>
           </div>
           <div class="col-sm-12 form-check-inline input-category ">
-            <!--Celular-->
-            <div class="form-check padding-left-grow-1">
-              <input class="form-check-input" type="radio" name="category" value="phones" <%= locals.oldData && oldData.category == 'phones' ? "checked" : null %>>
-              <label class="form-check-label" for="category">
-                Celular
-              </label>
-            </div>
-            <!--Tablet-->
-            <div class="form-check padding-left-grow-1">
-              <input class="form-check-input" type="radio" name="category" value="tablets" <%= locals.oldData && oldData.category == 'tablets' ? "checked" : null %>>
-              <label class="form-check-label" for="category">
-                Tablet
-              </label>
-            </div>
-            <!--Laptop-->
-            <div class="form-check padding-left-grow-1">
-              <input class="form-check-input" type="radio" name="category" value="laptops" <%= locals.oldData && oldData.category == 'laptops' ? "checked" : null %>>
-              <label class="form-check-label" for="category">
-                Laptop
-              </label>
-            </div>
-
 
             <!--Ropa-->
             <div class="form-check padding-left-grow-1">
@@ -159,7 +137,7 @@
           <!-- Producto -->
           <div class="form-group row">
             <label for="inputState"><h4 class="titleNewProduct"> Marca </h4></label>
-            <% let marcas = ["Iphone","Apple","Samsung", "Motorola", "Huawei", "OnePlus", "Xiaomi", "Jabón Económico", "Jabón con Oxi", "Jabón Lavandería", "Suavizante", "Perfumina", "Detergente 30%", "Detergente 70%", "Detergente Lavavajillas", "Desengrasante", "Desengrasante Industrial", "Desinfectante", "Desodorante", "Atrapapolvo", "Jabon de manos", "Shampoo", "Acondicionador", "Perfumes", "Alohol neutro", "Crema","Shampoo Auto", "Brillagoma", "Perfume Auto", "Agua Destilada"] %> 
+            <% let marcas = ["Jabón Económico", "Jabón con Oxi", "Jabón Lavandería", "Suavizante", "Perfumina", "Detergente 30%", "Detergente 70%", "Detergente Lavavajillas", "Desengrasante", "Desengrasante Industrial", "Desinfectante", "Desodorante", "Atrapapolvo", "Jabon de manos", "Shampoo", "Acondicionador", "Perfumes", "Alohol neutro", "Crema","Shampoo Auto", "Brillagoma", "Perfume Auto", "Agua Destilada"] %> 
             <select name="brand" id="brandNewProduct" class="form-control">
                 <option >Elige la marca </option>
               <% marcas.forEach(item => { %> 
