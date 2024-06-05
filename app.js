@@ -10,15 +10,15 @@ const cookieParser = require('cookie-parser');
 
 //Requerir nuestro middleware - Aplicación
 //Requiero el middleware que controla si el sitio está o no culminado
-const mantenimiento = require('./middlewares/mantenimiento');
+const mantenimiento = require('./src/middlewares/mantenimiento');
 //Requerir el middleware que controla si el usuario está o no Logueado
-const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
+const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
 
 //>montar rutas 
-const productRoutes = require ('./routes/productRoutes');
-const mainRoutes = require ('./routes/mainRoutes');
-const usersRoutes = require ('./routes/usersRoutes');
-const apiRouter = require ('./routes/api');
+const productRoutes = require ('./src/routes/productRoutes');
+const mainRoutes = require ('./src/routes/mainRoutes');
+const usersRoutes = require ('./src/routes/usersRoutes');
+const apiRouter = require ('./src/routes/api');
 
 //Declaracion de puertos
 const port = 3000;
@@ -26,7 +26,7 @@ const port = 3000;
 // views
 // app.use(express.static(path.join(__dirname,'views')));
 // public
-app.use(express.static(path.join(__dirname,'../public')));
+app.use(express.static(path.join(__dirname,'./public')));
 // Decode Form URL Encoded Data
 app.use(express.urlencoded({extended: false}));
 // Put and Delete method
@@ -36,7 +36,7 @@ app.use(express.json())
 
 //EJS
 app.set('view engine', 'ejs');
-app.set("views", path.join(__dirname, "views"));
+app.set("views", path.join(__dirname, "src/views"));
 
 //Para mantener en sesion al usuario
 app.use(session({
