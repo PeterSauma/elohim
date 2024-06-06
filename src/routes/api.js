@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
-const controller = require("../controllers/apiController");
+const apiController = require("../controllers/apiController");
 
-router.post("/checkout", controller.checkout);
+router.post("/checkout", apiController.checkout);
 
 module.exports = router;
