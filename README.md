@@ -3,7 +3,7 @@
 Este proyecto se basa en un e-commerce creado en el 2022 en un bootcam en el que participé llamado tecnomundo. A partir de éste se puede adaptar para cualquier cliente y ahora lo voy a customizar para una empresa de artículos de limpieza.
 
 
-## Estilos visulaes definidos por el grupo
+## Estilos visulaes 
 
 
 
