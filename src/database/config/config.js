@@ -17,7 +17,7 @@ module.exports={
     "username": "hotelterrapatago_elohim",
     "password": "6L;f(fgh^8Gr",
     "database": "hotelterrapatago_elohim",
-    "host": "127.0.0.1",
+    "host": "15.204.208.155",
     "dialect": "mysql"
   }
 }
